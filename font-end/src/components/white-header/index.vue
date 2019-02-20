@@ -1,5 +1,5 @@
 <template>
-    <header class="default-header">
+    <header class="white-header">
         <div class="h-wrap">
             <div class="w-left">
                 <h1>FlyBird</h1>

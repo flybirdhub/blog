@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <default-header></default-header>
+        <black-header></black-header>
         <article>
             <div class="h-article">
                 <div class="a-main">
@@ -23,7 +23,7 @@
                         <div class="h-list">
                             <div class="l-item" :key="key" v-for="(item, key) in 5">
                                 <div class="i-title">
-                                    <h3>想看美女的看这里：Python 豆瓣美女爬虫</h3>
+                                    <h3 @click="nav('/article/1')">想看美女的看这里：Python 豆瓣美女爬虫</h3>
                                 </div>
                                 <div class="i-content">
                                     <div class="c-left">
@@ -132,17 +132,17 @@
                 </div>
             </div>
         </article>
-        <default-footer></default-footer>
+        <black-footer></black-footer>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
-    import defaultHeader from '@/components/default-header'
-    import defaultFooter from '@/components/default-footer'
+    import blackHeader from '@/components/black-header'
+    import blackFooter from '@/components/black-footer'
     export default {
         components: {
-            defaultHeader,
-            defaultFooter
+            blackHeader,
+            blackFooter
         },
         methods: {
             randomColor (a) {

@@ -1,0 +1,42 @@
+.white-header{
+  position: fixed;
+  top:0;
+  left:0;
+  display: flex;
+  justify-content: center;
+  width:100%;
+  background: white;
+  z-index: 1000;
+  .h-wrap{
+    display: flex;
+    justify-content: space-between;
+    width: 1140px;
+    height: 51px;
+    .w-left{
+      h1{
+        height: 51px;
+        margin:0;
+        line-height: 51px;
+        font-size: 25px;
+        color: #555;
+        &:hover{
+          cursor: pointer;
+        }
+      }
+    }
+    .w-right{
+      display: flex;
+      .r-text{
+        padding: 0 20px;
+        &:hover{
+          cursor: pointer;
+        }
+      }
+      span{
+        height: 51px;
+        line-height: 51px;
+        color: #FF694E;
+      }
+    }
+  }
+}

@@ -5,18 +5,16 @@
 </template>
 
 <script>
-    import 'normalize.css'
-
     export default {
         name: 'app'
     }
 </script>
 
 <style lang="less">
+    @import '~normalize.css';
+    @import './config/less/index';
     #app {
-        font-family: 'Avenir', Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        background-color: #f6f6f6;
+        font: 14px/24px Consolas,"Microsoft Yahei",Arial,"宋体";
+        font-size: 13px;
     }
 </style>
