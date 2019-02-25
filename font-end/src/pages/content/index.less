@@ -1,0 +1,40 @@
+@import '~mavon-editor/dist/css/index.css';
+.editor{
+  background-color: #f6f6f6;
+  article{
+    display: flex;
+    justify-content: center;
+    .e-article{
+      display: flex;
+      justify-content: space-between;
+      width:1200px;
+      padding: 70px 0 20px 0;
+      .a-side{
+        flex-basis: 15%;
+        flex-shrink: 0;
+        .s-menu{
+          background: white;
+          .m-item{
+            display: flex;
+            align-items: center;
+            height: 42px;
+            box-sizing: border-box;
+            padding-left: 45px;
+            color:#666;
+            span{
+              padding-left: 10px;
+            }
+          }
+        }
+      }
+      .a-main{
+        flex-basis: 83%;
+        flex-shrink: 0;
+        .v-note-wrapper{
+          width:100%;
+          height: 700px;
+        }
+      }
+    }
+  }
+}

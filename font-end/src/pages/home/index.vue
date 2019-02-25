@@ -55,7 +55,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="a-slide">
+                <div class="a-side">
                     <div class="s-item">
                         <div class="i-title">
                             <span>贡献榜</span>

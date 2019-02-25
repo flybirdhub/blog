@@ -1,2 +1,73 @@
-
 @import '~mavon-editor/dist/css/index.css';
+.editor{
+  .e-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: white;
+    .c-editor{
+      flex:1;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      .e-wrap{
+        padding:20px 40px;
+        .w-title{
+          display: flex;
+          align-items: center;
+          height: 58px;
+          input{
+            width:100%;
+            border:none;
+            outline: none;
+            font-size: 20px;
+            color:#595959;
+          }
+        }
+        .w-mavon{
+          .v-note-wrapper{
+            width:100%;
+            height: 700px;
+            z-index: 999;
+            .v-note-op{
+              border-left:none;
+              border-right:none;
+              border-bottom: 1px solid #e0e0e0;
+            }
+            .v-note-panel{
+              border:none;
+            }
+          }
+        }
+      }
+    }
+    .c-btn{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-basis: 81px;
+      box-sizing: border-box;
+      padding:0 40px;
+      border-top: 1px solid rgb(232, 232, 232);
+      .b-left{
+        span{
+          font-size: 14px;
+          color: rgb(158, 158, 158);
+        }
+      }
+      .b-right{
+        .r-publish{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width:100px;
+          height: 40px;
+          border-radius: 4px;
+          background: #f85959;
+          span{
+            color:white;
+          }
+        }
+      }
+    }
+  }
+}
