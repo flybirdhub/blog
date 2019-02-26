@@ -37,6 +37,12 @@
                         </div>
                     </div>
                 </div>
+                <div class="w-mid">
+                    <slot></slot>
+                </div>
+                <div class="w-right">
+                    <slot name="right"></slot>
+                </div>
             </div>
         </div>
     </div>
