@@ -30,6 +30,16 @@ export const routes = [
         }
     },
     {
+        name: 'author',
+        path: '/author/:id',
+        meta: {
+            requiresAuth: false
+        },
+        component: (resolve) => {
+            require(['@/pages/author'], resolve)
+        }
+    },
+    {
         name: 'editor',
         path: '/editor',
         meta: {
@@ -37,6 +47,16 @@ export const routes = [
         },
         component: (resolve) => {
             require(['@/pages/editor'], resolve)
+        }
+    },
+    {
+        name: 'articles',
+        path: '/articles',
+        meta: {
+            requiresAuth: true
+        },
+        component: (resolve) => {
+            require(['@/pages/articles'], resolve)
         }
     }
 ]

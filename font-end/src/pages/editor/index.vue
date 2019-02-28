@@ -1,7 +1,7 @@
 <template>
     <div class="editor">
         <white-header></white-header>
-        <graphic-layout>
+        <me-layout>
             <div class="e-container">
                 <div class="c-editor">
                     <div class="e-wrap">
@@ -24,13 +24,13 @@
                     </div>
                 </div>
             </div>
-        </graphic-layout>
+        </me-layout>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
     import { mavonEditor } from 'mavon-editor'
-    import graphicLayout from '@/components/graphic-layout'
+    import meLayout from '@/components/me-layout'
     import whiteHeader from '@/components/white-header'
     export default {
         data () {
@@ -75,7 +75,7 @@
         },
         components: {
             mavonEditor,
-            graphicLayout,
+            meLayout,
             whiteHeader,
         }
     }

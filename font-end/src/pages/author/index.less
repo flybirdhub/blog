@@ -1,0 +1,98 @@
+.author{
+  .a-list{
+    padding:0 30px;
+    margin-top: 15px;
+    .l-item{
+      display: flex;
+      align-items: center;
+      height: 150px;
+      .i-left{
+        flex-basis: 156px;
+        height: 100px;
+        img{
+          width:100%;
+          height: 100%;
+        }
+      }
+      .i-right{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 15px;
+        .r-name{
+          span{
+            font-size: 20px;
+            font-weight: 700;
+            color: #555;
+          }
+        }
+        .r-time{
+          padding-top: 10px;
+          span{
+            position: relative;
+            font-size: 14px;
+            color: #777;
+            &:not(:last-child){
+              padding-right: 15px;
+              &:after{
+                position: absolute;
+                content: '';
+                right:6px;
+                top:50%;
+                transform: translateY(-50%);
+                width:2px;
+                height: 2px;
+                border-radius: 1px;
+                background: #777;
+              }
+            }
+          }
+        }
+      }
+      &:not(:last-child){
+        border-bottom: 1px solid #f2f2f2;
+      }
+    }
+  }
+  .r-block{
+    padding-top: 15px;
+    .b-title{
+      display: flex;
+      align-items: center;
+      height: 42px;
+      color: rgb(91, 95, 109);
+      span{
+        padding-left: 10px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+    .b-content{
+      .c-item{
+        display: flex;
+        align-items: center;
+        .i-cover{
+          flex-basis: 48px;
+          height: 48px;
+          img{
+            width:100%;
+            height: 100%;
+          }
+        }
+        .i-text{
+          flex:1;
+          padding-left: 10px;
+          p{
+            margin:0;
+            line-height: 20px;
+            font-size: 14px;
+            color: rgb(230, 120, 100);
+          }
+        }
+        &:not(:first-child){
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}
