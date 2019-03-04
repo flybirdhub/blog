@@ -17,4 +17,11 @@ class R
     {
         return UserModel::get($cond);
     }
+
+    public function getUserProfile($cond)
+    {
+        return UserModel::with(['profile'])
+            ->where($cond)
+            ->find();
+    }
 }

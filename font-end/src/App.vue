@@ -5,8 +5,15 @@
 </template>
 
 <script>
+    import {mapActions} from 'vuex'
     export default {
-        name: 'app'
+        name: 'app',
+        methods: {
+            ...mapActions('user', ['getUser'])
+        },
+        created () {
+            this.getUser()
+        }
     }
 </script>
 

@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
-// 导入路由表
+// 路由表
 import {router} from '@/config/router'
-// 导入element-ui
+// element-ui
 import '@/config/ui-framework/element-ui'
-// 导入vue扩展
+// vue扩展
 import '@/utils/vue/mixins'
+// 状态管理
+import './store'
 
 Vue.config.productionTip = false
 

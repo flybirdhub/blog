@@ -6,14 +6,14 @@
                     <span>账号密码登陆</span>
                 </div>
                 <div class="t-field">
-                    <input type="text" placeholder="账号">
-                    <input type="password" placeholder="密码">
+                    <input type="text" placeholder="账号" v-model="form.account">
+                    <input type="password" placeholder="密码" v-model="form.password">
                 </div>
                 <div class="t-auto">
                     <input type="checkbox" checked="checked">
                     <span>自动登录</span>
                 </div>
-                <div class="t-btn">
+                <div class="t-btn" @click="toLogin">
                     <span>登陆</span>
                 </div>
                 <div class="t-reset">
@@ -36,6 +36,29 @@
         </div>
     </div>
 </template>
+
+<script type="text/ecmascript-6">
+    import {mapActions} from 'vuex'
+    export default {
+        data () {
+            return {
+                form: {
+                    account: '',
+                    password: ''
+                }
+            }
+        },
+        methods: {
+            ...mapActions('user', ['login']),
+            toLogin () {
+                this.login(this.form).then(() => {
+                    this.$message('登陆成功')
+                    this.nav('/')
+                })
+            }
+        }
+    }
+</script>
 
 <style lang="less">
     @import 'index';
