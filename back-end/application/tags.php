@@ -12,7 +12,7 @@
 // 应用行为扩展定义文件
 return [
     // 应用初始化
-    'app_init'     => ['app\common\behavior\AppInit'],
+    'app_init'     => ['app\\common\\behavior\\AppInit'],
     // 应用开始
     'app_begin'    => [],
     // 模块初始化
@@ -25,7 +25,7 @@ return [
     'log_write'    => [],
     // 响应发送标签
     'response_send' => [
-        'app\common\behavior\ResponseSend'
+        'app\\common\\behavior\\ResponseSend'
     ],
     // 应用结束
     'app_end'      => [],

@@ -15,12 +15,20 @@ class R
 
     public function getUser($cond)
     {
-        return UserModel::get($cond);
+        return UserModel::where($cond)
+            ->find();
     }
 
     public function getUserProfile($cond)
     {
         return UserModel::with(['profile'])
+            ->where($cond)
+            ->find();
+    }
+
+    public function getUserAuth($cond)
+    {
+        return UserModel::with(['auth'])
             ->where($cond)
             ->find();
     }

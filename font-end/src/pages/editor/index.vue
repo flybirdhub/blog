@@ -6,10 +6,11 @@
                 <div class="c-editor">
                     <div class="e-wrap">
                         <div class="w-title">
-                            <input type="text" placeholder="请输入文章标题（5-20字）">
+                            <input type="text" placeholder="请输入文章标题（5-20字）" v-model="form.title">
                         </div>
                         <div class="w-mavon">
-                            <mavon-editor :toolbars="toolbars" :boxShadow="false" defaultOpen="edit" :subfield="false" v-model="value"/>
+                            <mavon-editor :toolbars="toolbars" :boxShadow="false" defaultOpen="edit" :subfield="false"
+                                          v-model="form.text"/>
                         </div>
                     </div>
                 </div>
@@ -18,7 +19,7 @@
                         <span>数字 0</span>
                     </div>
                     <div class="b-right">
-                        <div class="r-publish">
+                        <div class="r-publish" @click="doPublish">
                             <span>发表</span>
                         </div>
                     </div>
@@ -29,14 +30,39 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { mavonEditor } from 'mavon-editor'
+    import {api} from '@/utils/api'
+    import {mavonEditor} from 'mavon-editor'
     import meLayout from '@/components/me-layout'
     import whiteHeader from '@/components/white-header'
+
     export default {
-        data () {
+        data() {
             return {
-                value: '',
-                toolbars:{
+                form: {
+                    title: '',
+                    text: '#### HTML 代码 HTML codes\n' +
+                        '\n' +
+                        '```html\n' +
+                        '<!DOCTYPE html>\n' +
+                        '<html>\n' +
+                        '    <head>\n' +
+                        '        <mate charest="utf-8" />\n' +
+                        '        <meta name="keywords" content="Editor.md, Markdown, Editor" />\n' +
+                        '        <title>Hello world!</title>\n' +
+                        '        <style type="text/css">\n' +
+                        '            body{font-size:14px;color:#444;font-family: "Microsoft Yahei", Tahoma, "Hiragino Sans GB", Arial;background:#fff;}\n' +
+                        '            ul{list-style: none;}\n' +
+                        '            img{border:none;vertical-align: middle;}\n' +
+                        '        </style>\n' +
+                        '    </head>\n' +
+                        '    <body>\n' +
+                        '        <h1 class="text-xxl">Hello world!</h1>\n' +
+                        '        <p class="text-green">Plain text</p>\n' +
+                        '    </body>\n' +
+                        '</html>\n' +
+                        '```'
+                },
+                toolbars: {
                     bold: true, // 粗体
                     italic: true, // 斜体
                     header: true, // 标题
@@ -77,6 +103,15 @@
             mavonEditor,
             meLayout,
             whiteHeader,
+        },
+        methods: {
+            doPublish() {
+                api.user.createArticle(this.form).then(res => {
+                    if (res.done) {
+                        this.$message('发表成功')
+                    }
+                })
+            }
         }
     }
 </script>

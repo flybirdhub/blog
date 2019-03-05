@@ -6,5 +6,11 @@ export const user = {
     },
     profile () {
         return post('api/user/profile')
+    },
+    checkAuth (o) {
+        return post('api/user/checkAuth', o)
+    },
+    createArticle (o) {
+        return post('api/user/createArticle', o)
     }
 }

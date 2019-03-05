@@ -6,7 +6,7 @@
                 <div class="a-header">
                     <div class="h-title">
                         <span></span>
-                        <p>想看美女的看这里：Python 豆瓣美女爬虫</p>
+                        <p>{{info.title}}</p>
                     </div>
                     <div class="h-time">
                         <div class="t-item">
@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="a-content">
-                    <mavon-editor :toolbarsFlag="false" :boxShadow="false" defaultOpen="preview" :subfield="false" v-model="value"/>
+                    <mavon-editor :toolbarsFlag="false" :boxShadow="false" defaultOpen="preview" :subfield="false" v-model="info.text"/>
                 </div>
                 <div class="a-footer">
                     <div class="f-tag">
@@ -128,6 +128,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+    import {api} from '@/utils/api'
     import whiteHeader from '@/components/white-header'
     import whiteFooter from '@/components/white-footer'
     import userLayout from '@/components/user-layout'
@@ -135,27 +136,11 @@
     export default {
         data () {
             return {
-                value: '#### HTML 代码 HTML codes\n' +
-                    '\n' +
-                    '```html\n' +
-                    '<!DOCTYPE html>\n' +
-                    '<html>\n' +
-                    '    <head>\n' +
-                    '        <mate charest="utf-8" />\n' +
-                    '        <meta name="keywords" content="Editor.md, Markdown, Editor" />\n' +
-                    '        <title>Hello world!</title>\n' +
-                    '        <style type="text/css">\n' +
-                    '            body{font-size:14px;color:#444;font-family: "Microsoft Yahei", Tahoma, "Hiragino Sans GB", Arial;background:#fff;}\n' +
-                    '            ul{list-style: none;}\n' +
-                    '            img{border:none;vertical-align: middle;}\n' +
-                    '        </style>\n' +
-                    '    </head>\n' +
-                    '    <body>\n' +
-                    '        <h1 class="text-xxl">Hello world!</h1>\n' +
-                    '        <p class="text-green">Plain text</p>\n' +
-                    '    </body>\n' +
-                    '</html>\n' +
-                    '```'
+                id: this.$route.params.id,
+                info:{
+                    title: '',
+                    text: ''
+                }
             }
         },
         components: {
@@ -163,6 +148,18 @@
             whiteHeader,
             whiteFooter,
             userLayout
+        },
+        methods: {
+            getArticle () {
+                api.article.info({id: this.id}).then(res => {
+                    if (res.done) {
+                        this.info = res.data
+                    }
+                })
+            }
+        },
+        created () {
+            this.getArticle()
         }
     }
 </script>
