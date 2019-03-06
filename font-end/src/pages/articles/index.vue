@@ -3,13 +3,13 @@
         <white-header></white-header>
         <me-layout>
             <div class="a-list">
-                <div class="l-item" :key="key" v-for="(item, key) in 3">
+                <div class="l-item" :key="key" v-for="(item, key) in articles">
                     <div class="i-left">
                         <img src="https://www.link-nemo.com/forumlib/images/cover/article-default-cover.jpg" alt="">
                     </div>
                     <div class="i-right">
                         <div class="r-name">
-                            <span>想看美女的看这里：Python 豆瓣美女爬虫</span>
+                            <span>{{item.title}}</span>
                         </div>
                         <div class="r-time">
                             <span>2,452阅读</span>
@@ -40,12 +40,30 @@
 </template>
 
 <script type="text/ecmascript-6">
+    import {api} from '@/utils/api'
     import meLayout from '@/components/me-layout'
     import whiteHeader from '@/components/white-header'
     export default {
+        data () {
+            return {
+                articles: []
+            }
+        },
         components: {
             meLayout,
             whiteHeader,
+        },
+        methods: {
+            getArticles () {
+                api.user.getArticles().then(res => {
+                    if (res.done) {
+                        this.articles = res.data
+                    }
+                })
+            }
+        },
+        created () {
+            this.getArticles()
         }
     }
 </script>

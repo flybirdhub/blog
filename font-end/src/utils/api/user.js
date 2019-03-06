@@ -12,5 +12,8 @@ export const user = {
     },
     createArticle (o) {
         return post('api/user/createArticle', o)
+    },
+    getArticles () {
+        return post('api/user/getArticles')
     }
 }

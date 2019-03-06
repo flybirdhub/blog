@@ -20,6 +20,7 @@ export const actions = {
             api.user.profile().then(res => {
                 if (res.done) {
                     commit(types.SET_USER_PROFILE, res.data)
+                    commit(types.SET_USER_LOGIN, true)
                     resolve()
                 }
             })

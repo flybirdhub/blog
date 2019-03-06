@@ -18,4 +18,22 @@ class R
         return ArticleModel::where($cond)
             ->find();
     }
+
+    public function getArticles($cond)
+    {
+        return ArticleModel::where($cond)
+            ->select();
+    }
+
+    public function getArticlesWithPage($cond, $order, $page)
+    {
+        $count = count(ArticleModel::where($cond)
+            ->select());
+        $list = ArticleModel::where($cond)
+            ->order($order)
+            ->limit($page['size'])
+            ->page($page['index'])
+            ->select();
+        return ['count' => $count, 'list' => $list];
+    }
 }

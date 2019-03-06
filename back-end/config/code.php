@@ -25,6 +25,9 @@ return [
         ],
         'info' => [
             'paramsRequire' => 3100
+        ],
+        'page' => [
+            'paramsRequire' => 3200
         ]
-    ]
+    ],
 ];

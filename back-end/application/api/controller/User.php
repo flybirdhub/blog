@@ -48,4 +48,9 @@ class User
     {
         return self::httpResp($this->userArticleLogic->create());
     }
+
+    public function getArticles()
+    {
+        return self::httpResp($this->userArticleLogic->getArticles());
+    }
 }
